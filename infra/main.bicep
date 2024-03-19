@@ -35,14 +35,17 @@ param searchServiceIndexName string = 'azure-chat'
 param searchServiceSkuName string = 'standard'
 param searchServiceAPIVersion string = '2023-07-01-Preview'
 
-param resourceGroupName string = ''
+param resourceGroupName string = 'EUS-Core-Apps-EA-Dev-RG'
 
 var resourceToken = toLower(uniqueString(subscription().id, name, location))
-var tags = { 'azd-env-name': name }
+var tags = {'azd-env-name': name
+            Department: 'EA'
+            CostCentre: '3030316'
+ }
 
 // Organize resources in a resource group
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: !empty(resourceGroupName) ? resourceGroupName : 'rg-${name}'
+  name: !empty(resourceGroupName) ? resourceGroupName : 'EUS-Core-Apps-EA-Dev-RG'  //'rg-${name}'
   location: location
   tags: tags
 }
@@ -52,7 +55,7 @@ module resources 'resources.bicep' = {
   scope: rg
   params: {
     name: name
-    resourceToken: resourceToken
+   // resourceToken: resourceToken
     tags: tags
     openai_api_version: openAIApiVersion
     openAiResourceGroupLocation: openAILocation

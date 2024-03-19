@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\infra",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\api",
+    "\\src\\app\\api\\auth",
+    "\\src\\app\\unauthorized",
+    "\\src\\features",
+    "\\src\\features\\chat",
+    "\\src\\features\\chat\\chat-services"
+  ],
+  "SelectedNode": "\\images\\chat-login-dev.png",
+  "PreviewInSolutionExplorer": false
+}

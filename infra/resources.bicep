@@ -1,5 +1,5 @@
-param name string = 'azurechat-demo'
-param resourceToken string
+param name string
+//param resourceToken string
 
 param openai_api_version string
 
@@ -26,17 +26,17 @@ param nextAuthHash string = uniqueString(newGuid())
 
 param tags object = {}
 
-var openai_name = toLower('${name}ai${resourceToken}')
-var form_recognizer_name = toLower('${name}-form-${resourceToken}')
-var speech_service_name = toLower('${name}-speech-${resourceToken}')
-var cosmos_name = toLower('${name}-cosmos-${resourceToken}')
-var search_name = toLower('${name}search${resourceToken}')
-var webapp_name = toLower('${name}-webapp-${resourceToken}')
-var appservice_name = toLower('${name}-app-${resourceToken}')
+var openai_name = toLower('${name}ai-tfgpt')
+var form_recognizer_name = toLower('${name}-form-tfgpt')
+var speech_service_name = toLower('${name}-speech-tfgpt')
+var cosmos_name = toLower('${name}-cosmos-tfgpt')
+var search_name = toLower('${name}search-tfgpt')
+var webapp_name = toLower('${name}-webapp-tfgpt')
+var appservice_name = toLower('${name}-app-tfgpt')
 // keyvault name must be less than 24 chars - token is 13
 var kv_prefix = take(name, 7)
-var keyVaultName = toLower('${kv_prefix}-kv-${resourceToken}')
-var la_workspace_name = toLower('${name}-la-${resourceToken}')
+var keyVaultName = toLower('${kv_prefix}-kv-tfgpt')
+var la_workspace_name = toLower('${name}-la-tfgpt')
 var diagnostic_setting_name = 'AppServiceConsoleLogs'
 
 var keyVaultSecretsUserRole = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
